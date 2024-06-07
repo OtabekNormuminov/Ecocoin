@@ -1,0 +1,209 @@
+<!-- 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-App</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .plus-one {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: red;
+            font-size: 16px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.5s ease-out, top 0.5s ease-out;
+        }
+        .plus-one.show {
+            opacity: 1;
+            top: -40px;
+        }
+        .search {
+            position: relative;
+            display: inline-block;
+        }
+        #coin-button {
+            transition: transform 0.2s ease;
+        }
+        #coin-button:active {
+            transform: scale(0.9);
+        }
+        .score {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .quit-button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <button id="coin-button">
+                <img src="360_F_471070917_ilZTVG8nmJr95lnUAh619a4n8rFqRLMg-removebg-preview (1).png" alt="">
+            </button>
+        </div>
+        <div class="score" id="score">Score: 0</div>
+        <button class="quit-button" id="quit-button">Quit Game</button>
+    </div>
+    <script>
+        // Load score from localStorage
+        let score = localStorage.getItem('score') ? parseInt(localStorage.getItem('score')) : 0;
+        document.getElementById('score').textContent = 'Score: ' + score;
+
+        document.getElementById('coin-button').addEventListener('click', function() {
+            // Increment score
+            score++;
+            document.getElementById('score').textContent = 'Score: ' + score;
+
+            // Save score to localStorage
+            localStorage.setItem('score', score);
+
+            // Create and animate +1
+            var plusOne = document.createElement('div');
+            plusOne.className = 'plus-one';
+            plusOne.textContent = '+1';
+            this.parentElement.appendChild(plusOne);
+
+            // Trigger reflow to ensure the animation will run
+            plusOne.offsetWidth;
+
+            // Add the show class to animate
+            plusOne.classList.add('show');
+
+            // Remove the element after animation is done
+            plusOne.addEventListener('transitionend', function() {
+                plusOne.remove();
+            });
+        });
+
+        document.getElementById('quit-button').addEventListener('click', function() {
+            // Reset score
+            score = 0;
+            document.getElementById('score').textContent = 'Score: ' + score;
+
+            // Clear score from localStorage
+            localStorage.setItem('score', score);
+        });
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-App</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .plus-one {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgb(19, 14, 14);
+            font-size: 1.5em;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.5s ease-out, top 0.5s ease-out;
+            margin-top: 70px;
+            
+        }
+        .plus-one.show {
+            opacity: 1;
+            top: -40px;
+            
+        }
+        .search {
+            position: relative;
+            display: inline-block;
+        }
+        #coin-button {
+            transition: transform 0.2s ease;
+        }
+        #coin-button:active {
+            transform: scale(0.9);
+        }
+        .score {
+           
+            font-size: 24px;
+            font-weight: bold;
+            
+        }
+        .quit-button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="score" id="score"></div>
+        <div class="search">
+            <button id="coin-button">
+                <img src="360_F_471070917_ilZTVG8nmJr95lnUAh619a4n8rFqRLMg-removebg-preview (1).png" alt="">
+            </button>
+        </div>
+        
+        <div class="multiple">
+            <button class="quit-button" id="quit-button">💰</button>
+            <button class="friends">🙋‍♂️</button>
+            <button class="earn">🚀</button>
+        </div>  
+    </div>
+    <script>
+        // Load score from localStorage
+        let score = localStorage.getItem('score') ? parseInt(localStorage.getItem('score')) : 0;
+        document.getElementById('score').textContent = ' ' + score;
+
+        document.getElementById('coin-button').addEventListener('click', function() {
+            // Increment score
+            score++;
+            document.getElementById('score').textContent = '' + score;
+
+            // Save score to localStorage
+            localStorage.setItem('score', score);
+
+            // Create and animate +1
+            var plusOne = document.createElement('div');
+            plusOne.className = 'plus-one';
+            plusOne.textContent = '+1';
+            this.parentElement.appendChild(plusOne);
+
+            // Trigger reflow to ensure the animation will run
+            plusOne.offsetWidth;
+
+            // Add the show class to animate
+            plusOne.classList.add('show');
+
+            // Remove the element after animation is done
+            plusOne.addEventListener('transitionend', function() {
+                plusOne.remove();
+            });
+        });
+
+        document.getElementById('quit-button').addEventListener('click', function() {
+            // Reset score
+            // score = 0;
+            // document.getElementById('score').textContent = 'Score: ' + score;
+
+            // Clear score from localStorage
+            // localStorage.setItem('score', score);
+            
+        });
+    </script>
+</body>
+</html>
+
